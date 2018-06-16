@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  PEMISION = { 3 => "admin", 2 => "staff", 1 => "custom" }
+  PEMISION = { 3 => "admin", 2 => "staff", 1 => "custom.scss" }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

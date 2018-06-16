@@ -3,8 +3,4 @@
 //= require bootstrap
 //= require activestorage
 //= require turbolinks
-//= require navbar
-//= require slick.min
-//= require nouislider.min
-//= require main
-//= require_self
+//= require admin/easyTree

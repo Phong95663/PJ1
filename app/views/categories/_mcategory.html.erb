@@ -1,0 +1,11 @@
+<li id="ct-<%= @category.id %>">
+  <span>
+    <span class="glyphicon glyphicon-file"></span><%= @category.name %>
+    <span class="m_span  glyphicon-file"> &gt;|
+      <%= link_to "add", new_child_category_path(@category), remote: true %> |
+      <%= link_to "edit", edit_category_path(@category), remote: true %>|
+      <%= link_to "del", @category, method: :delete,
+                  data: {confirm: "dmm"}, remote: true %>
+    </span>
+  </span>
+</li>

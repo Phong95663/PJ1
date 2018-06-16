@@ -1,0 +1,5 @@
+<% if @category.is_root? %>
+  $("#root").prepend("<%= j render "mcategory" %>");
+<% else %>
+  $("#r-<%= @category.parent_id %>").replaceWith("<%= j render "mcategory" %>");
+<% end %>

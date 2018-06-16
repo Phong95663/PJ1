@@ -1,0 +1,47 @@
+<% if @category.children.empty? %>
+  <li id="ct-<%= @category.id %>" class="parent_li"><span title="collapse">
+    <span class="glyphicon glyphicon-folder-open"></span>
+      <span class="m_span  glyphicon-file"> <%= @category.name %> &gt;|
+        <%= link_to "add", new_child_category_path(@category), remote: true %> |
+        <%= link_to "edit", edit_category_path(@category), remote: true %>|
+        <%= link_to "del", @category, method: :delete,
+                    data: {confirm: "dmm"}, remote: true %>
+      </span>
+    </span>
+    <ul>
+      <li id="r-<%= @category.id %>">
+  <span>
+    <span class="glyphicon glyphicon-file"></span>
+    <span class="m_span  glyphicon-file">
+      <%= form_for @category.children.build, method: :post, remote: true do |f| %>
+        <%= f.hidden_field :parent_id %>
+        <div class="form-group">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+          <button type="button" class="btn btn-default cancel" id="cancle-<%= @category.id %>">cancle</button>
+        <% end %>
+    </span>
+  </span>
+      </li>
+    </ul>
+  </li>
+<% else %>
+  <li id="r-<%= @category.id %>">
+  <span>
+    <span class="glyphicon glyphicon-file"></span>
+    <span class="m_span  glyphicon-file">
+      <%= form_for @category.children.build, method: :post, remote: true do |f| %>
+        <%= f.hidden_field :parent_id %>
+        <div class="form-group">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+          <button type="button" class="btn btn-default cancel" id="cancle-<%= @category.id %>">cancle</button>
+        <% end %>
+    </span>
+  </span>
+  </li>
+<% end %>
+
+

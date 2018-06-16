@@ -1,0 +1,5 @@
+<%= @category.name %> &gt;|
+<%= link_to "add", new_child_category_path(@category), remote: true %> |
+<%= link_to "edit", edit_category_path(@category), remote: true %>|
+<%= link_to "del", @category, method: :delete,
+            data: {confirm: "dmm"}, remote: true %>

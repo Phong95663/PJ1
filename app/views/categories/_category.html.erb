@@ -1,0 +1,18 @@
+<% if !category.is_parent? %>
+  <li id="ct-<%= category.id %>"><%= category.name %> >|
+  <%= link_to "add", new_child_category_path(category), remote: true %> |
+  <%= link_to "edit", edit_category_path(category), remote: true %> |
+  <%= link_to "del", category, method: :delete,
+                data: {confirm: "dmm"}, remote: true %>
+  </li>
+<% else %>
+  <li id="ct-<%= category.id %>"><%= category.name %> >|
+    <%= link_to "add", new_child_category_path(category), remote: true %> |
+    <%= link_to "edit", edit_category_path(category), remote: true %> |
+    <%= link_to "del", category, method: :delete,
+                data: {confirm: "dmm"}, remote: true %>
+    <ul>
+      <%= render category.children if category.children.any? %>
+    </ul>
+  </li>
+<% end %>
