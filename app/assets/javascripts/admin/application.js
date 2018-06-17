@@ -4,3 +4,6 @@
 //= require activestorage
 //= require turbolinks
 //= require admin/easyTree
+//= require dropzone
+//= require ckeditor/init
+//= require ckeditor/config.js

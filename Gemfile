@@ -19,9 +19,10 @@ gem "mini_magick", "~> 4.8"
 gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.1"
 gem "jquery-rails", "~> 4.3", ">= 4.3.3"
 gem "config"
-
+gem "carrierwave"
 gem "bootsnap", ">= 1.1.0", require: false
-
+gem "dropzonejs-rails", "~> 0.7.3"
+gem "ckeditor"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -44,6 +45,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem "mysql2", ">= 0.4.4", "< 0.6.0"
-
+  gem "fog", "1.42"
 end
 

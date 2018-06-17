@@ -13,4 +13,23 @@ class Category < ApplicationRecord
     !children.empty?
   end
 
+  def self.get_list_path
+    arr = all();
+    arr.map do |cate|
+      {id: cate.id, path: cate.get_path}
+    end
+  end
+
+
+  def get_path m_category = self
+    m_path = '/' + m_category.name
+    loop do
+        break if m_category.parent_id.nil?
+        m_path.prepend('/' + m_category.parent.name)
+        m_category = m_category.parent
+      end
+    m_path
+  end
+
+
 end

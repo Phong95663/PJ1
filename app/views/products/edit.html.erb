@@ -1,0 +1,15 @@
+<h1 class="text-center">Editing product</h1>
+<%= render 'form' %>
+
+<p><strong>Existing Images:</strong></p>
+
+
+<%= form_for [@product, Image.new], :html => {id: 'image-dropzone', class: :dropzone, multipart: true} do |f| %>
+	<%= f.hidden_field :image %>
+<% end %>
+
+
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>
+<%= javascript_include_tag "admin/dropzone_config" %>
+<%= javascript_include_tag "ckeditor/add" %>
